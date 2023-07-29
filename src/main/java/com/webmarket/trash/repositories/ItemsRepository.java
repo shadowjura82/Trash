@@ -1,13 +1,11 @@
 package com.webmarket.trash.repositories;
 
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
 // Эмуляция базы данных товаров
 @Repository
-@Scope("session")
 public class ItemsRepository {
     private final Map<Integer,Item> database = new HashMap<>();
 

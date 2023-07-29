@@ -4,7 +4,6 @@ import com.webmarket.trash.interfaces.TrashService;
 import com.webmarket.trash.repositories.Item;
 import com.webmarket.trash.repositories.ItemsRepository;
 import com.webmarket.trash.repositories.TrashRepository;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,7 +11,6 @@ import java.util.Map;
 import java.util.Set;
 
 @Service
-@Scope("session")
 public class TrashServiceImpl implements TrashService {
     private final TrashRepository trashRepository;
     private final ItemsRepository itemsRepository;
@@ -24,8 +22,7 @@ public class TrashServiceImpl implements TrashService {
 
     @Override
     public void add(ArrayList<Integer> ID) {
-        for (int i = 0; i < ID.size(); i++)
-            trashRepository.setTrash(ID.get(i));
+        for (Integer integer : ID) trashRepository.setTrash(integer);
     }
 
     @Override
